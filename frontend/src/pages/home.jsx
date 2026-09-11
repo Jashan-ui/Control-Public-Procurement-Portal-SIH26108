@@ -6,7 +6,7 @@ marked.setOptions({ breaks: true, gfm: true });
 const INITIAL_MESSAGE = { role: 'assistant', content: 'Hello! Ask me any technical question regarding Indian Standards, material testing criteria, or structural guidelines.' };
 
 export default function Home() {
-  const BACKEND_URL = "http://127.0.0.1:8000";
+  const BACKEND_URL = "https://control-public-procurement-portal.onrender.com";
   const [messages, setMessages] = useState([INITIAL_MESSAGE]);
   const [inputQuery, setInputQuery] = useState('');
   const [activeFile, setActiveFile] = useState(null);
