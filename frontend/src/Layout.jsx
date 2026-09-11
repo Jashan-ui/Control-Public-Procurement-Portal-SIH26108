@@ -55,7 +55,7 @@ function FloatingCodesCanvas() {
           const dx = items[i].x - items[j].x, dy = items[i].y - items[j].y;
           const d = Math.hypot(dx, dy);
           if (d < LINK) {
-            const a = (1 - d / LINK) * 0.35;
+            const a = (1 - d / LINK) * 0.15;
             ctx.strokeStyle = `rgba(200,215,255,${a})`;
             ctx.beginPath();
             ctx.moveTo(items[i].x, items[i].y);
@@ -74,7 +74,7 @@ function FloatingCodesCanvas() {
         if (t.x < 0 || t.x > w) t.vx *= -1;
         if (t.y < 0 || t.y > h) t.vy *= -1;
         t.pulse += 0.03;
-        const glow = 0.5 + Math.sin(t.pulse) * 0.35;
+        const glow = 0.5 + Math.sin(t.pulse) * 0.10;
 
         ctx.beginPath();
         ctx.arc(t.x, t.y, 3 * dpr, 0, Math.PI * 2);
@@ -90,13 +90,13 @@ function FloatingCodesCanvas() {
         const bx = t.x - labelW / 2 - padX, by = t.y + 10 * dpr;
         const bw = labelW + padX * 2, bh = 18 * dpr, r = 9 * dpr;
 
-        ctx.fillStyle = 'rgba(10,15,40,.7)';
-        ctx.strokeStyle = `rgba(200,215,255,${0.2 + glow * 0.25})`;
+        ctx.fillStyle = 'rgba(10,15,40,.3)';
+        ctx.strokeStyle = `rgba(200,215,255,${0.2 + glow * 0.20})`;
         roundRect(ctx, bx, by, bw, bh, r);
         ctx.fill();
         ctx.stroke();
 
-        ctx.fillStyle = 'rgba(240,246,255,.95)';
+        ctx.fillStyle = 'rgba(240,246,255,.3)';
         ctx.fillText(label, t.x, by + bh / 2 + 1 * dpr);
       });
 
